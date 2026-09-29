@@ -1,0 +1,56 @@
+{
+  "categorias": [
+    {
+      "id": "figuras",
+      "nombre": "Figuras y personajes"
+    },
+    {
+      "id": "decoracion",
+      "nombre": "Decoración"
+    },
+    {
+      "id": "llaveros",
+      "nombre": "Llaveros y souvenirs"
+    },
+    {
+      "id": "utiles",
+      "nombre": "Útiles y organizadores"
+    },
+    {
+      "id": "repuestos",
+      "nombre": "Repuestos y piezas técnicas"
+    },
+    {
+      "id": "personalizados",
+      "nombre": "Personalizados"
+    },
+    {
+      "nombre": "Juguetes articulados",
+      "id": "articulados"
+    },
+    {
+      "nombre": "Packs de llaveros",
+      "id": "llaveros-pack"
+    }
+  ],
+  "whatsapp_principal": "5493815061365",
+  "eslogan": "Imprimimos tus ideas",
+  "nombre": "TucVision3D",
+  "mostrar_precios": true,
+  "mensaje_whatsapp": "¡Hola TucVision3D! Me interesa este producto del catálogo:",
+  "instagram": "tuc.vision3d",
+  "nota_precios": "Los precios pueden variar según tamaño, color y material. Consultanos sin compromiso.",
+  "hero_texto": "Figuras, decoración, repuestos y regalos personalizados. Elegí un modelo o traenos tu idea y la hacemos realidad.",
+  "hero_titulo": "Catálogo de impresiones 3D",
+  "ubicacion": "San Miguel de Tucumán, Argentina",
+  "telefonos": [
+    {
+      "numero": "3815061365",
+      "whatsapp": "5493815061365"
+    },
+    {
+      "numero": "3815582223",
+      "whatsapp": "5493815582223"
+    }
+  ]
+}

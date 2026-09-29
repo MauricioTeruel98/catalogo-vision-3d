@@ -1,0 +1,116 @@
+# Configuración del panel de administración (Decap CMS)
+# Docs: https://decapcms.org/docs/configuration-options/
+
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    update: "Actualizar {{collection}} “{{slug}}”"
+    uploadMedia: "Subir imagen “{{path}}”"
+
+# Para probar el panel en tu compu sin Netlify: `npx decap-server` y descomentar:
+# local_backend: true
+
+locale: es
+site_url: /
+display_url: /
+logo_url: /assets/logo.png
+
+media_folder: uploads
+public_folder: /uploads
+
+collections:
+  - name: catalogo
+    label: Catálogo
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: productos
+        label: Productos
+        file: data/productos.json
+        fields:
+          - name: productos
+            label: Productos
+            label_singular: Producto
+            widget: list
+            summary: "{{fields.nombre}} · {{fields.categoria}}"
+            collapsed: true
+            fields:
+              - { name: nombre, label: Nombre, widget: string }
+              - name: categoria
+                label: Categoría
+                widget: relation
+                collection: ajustes
+                file: general
+                search_fields: ["categorias.*.nombre"]
+                display_fields: ["categorias.*.nombre"]
+                value_field: "categorias.*.id"
+              - name: precio
+                label: Precio (ARS)
+                widget: number
+                value_type: int
+                required: false
+                hint: Dejalo vacío para mostrar “Consultar precio”.
+              - { name: descripcion, label: Descripción, widget: text, required: false }
+              - name: imagenes
+                label: Fotos
+                label_singular: Foto
+                widget: list
+                required: false
+                hint: La primera foto es la portada. Ideal fotos cuadradas.
+                field: { name: imagen, label: Foto, widget: image, choose_url: false }
+              - { name: medidas, label: Medidas, widget: string, required: false, hint: "Ej: 10 x 10 x 12 cm" }
+              - name: material
+                label: Material
+                widget: select
+                required: false
+                options: ["PLA", "PETG", "ABS", "TPU (flexible)", "Resina", "A elección"]
+              - name: colores
+                label: Colores disponibles
+                widget: list
+                required: false
+                hint: Separados por coma. Ej. Azul, Blanco, Negro
+              - { name: tiempo_produccion, label: Tiempo de producción, widget: string, required: false, hint: "Ej: 3 a 5 días" }
+              - { name: destacado, label: Destacado, widget: boolean, default: false, hint: Aparece primero y con una etiqueta. }
+              - { name: visible, label: Visible en el catálogo, widget: boolean, default: true, hint: Desactivalo para ocultarlo sin borrarlo. }
+
+  - name: ajustes
+    label: Ajustes del sitio
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: general
+        label: Datos generales y categorías
+        file: data/config.json
+        fields:
+          - { name: nombre, label: Nombre del negocio, widget: string }
+          - { name: eslogan, label: Eslogan, widget: string }
+          - { name: hero_titulo, label: Título de portada, widget: string }
+          - { name: hero_texto, label: Texto de portada, widget: text }
+          - name: whatsapp_principal
+            label: WhatsApp para consultas
+            widget: string
+            hint: "Formato internacional sin + ni espacios. Ej: 5493815061365 (54 + 9 + código de área + número, sin 0 ni 15)"
+          - name: telefonos
+            label: Teléfonos que se muestran
+            label_singular: Teléfono
+            widget: list
+            fields:
+              - { name: numero, label: Número visible, widget: string }
+              - { name: whatsapp, label: "WhatsApp (formato 549...)", widget: string }
+          - { name: instagram, label: Usuario de Instagram (sin @), widget: string }
+          - { name: ubicacion, label: Ubicación, widget: string, required: false }
+          - { name: mensaje_whatsapp, label: Mensaje inicial de WhatsApp, widget: string }
+          - { name: mostrar_precios, label: Mostrar precios, widget: boolean, default: true }
+          - { name: nota_precios, label: Aclaración sobre precios, widget: text, required: false }
+          - name: categorias
+            label: Categorías
+            label_singular: Categoría
+            widget: list
+            summary: "{{fields.nombre}}"
+            hint: "El ID es interno: minúsculas y sin espacios. Si lo cambiás, actualizá los productos de esa categoría."
+            fields:
+              - { name: nombre, label: Nombre, widget: string }
+              - { name: id, label: ID, widget: string, pattern: ["^[a-z0-9-]+$", "Solo minúsculas, números y guiones"] }

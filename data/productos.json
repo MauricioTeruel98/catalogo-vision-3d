@@ -1,0 +1,284 @@
+{
+  "productos": [
+    {
+      "imagenes": [],
+      "precio": 2500,
+      "material": "PLA",
+      "destacado": true,
+      "nombre": "Llavero personalizado con nombre",
+      "descripcion": "Llavero con el nombre o texto que quieras, en dos colores. Precio por unidad; consultá por cantidad para eventos.",
+      "tiempo_produccion": "2 a 3 días",
+      "colores": [
+        "A elección"
+      ],
+      "visible": true,
+      "categoria": "llaveros",
+      "medidas": "6 x 2 cm aprox."
+    },
+    {
+      "imagenes": [],
+      "precio": 4500,
+      "material": "PETG",
+      "destacado": false,
+      "nombre": "Soporte para celular",
+      "descripcion": "Soporte de escritorio con ángulo ergonómico, compatible con cualquier celular y con espacio para el cable de carga.",
+      "tiempo_produccion": "2 a 4 días",
+      "colores": [
+        "Negro",
+        "Blanco",
+        "Azul"
+      ],
+      "visible": true,
+      "categoria": "utiles",
+      "medidas": "8 x 9 x 11 cm"
+    },
+    {
+      "imagenes": [],
+      "precio": 12000,
+      "material": "PLA",
+      "destacado": true,
+      "nombre": "Figura articulada de dragón",
+      "descripcion": "Dragón flexible impreso en una sola pieza, con articulaciones móviles. Un regalo ideal para chicos y grandes.",
+      "tiempo_produccion": "4 a 6 días",
+      "colores": [
+        "Multicolor",
+        "Azul",
+        "Rojo",
+        "Dorado"
+      ],
+      "visible": true,
+      "categoria": "figuras",
+      "medidas": "30 cm de largo"
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Camaleon que mueve los ojos",
+      "categoria": "figuras",
+      "precio": 5500,
+      "imagenes": [
+        "/uploads/captura-de-pantalla-2026-09-29-a-la-s-13.30.10.png"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Rompecabezas Spiderman",
+      "categoria": "figuras",
+      "precio": 7500,
+      "imagenes": [
+        "/uploads/captura-de-pantalla-2026-09-29-a-la-s-13.30.57.png"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Dragon articulado Shen Long",
+      "categoria": "figuras",
+      "precio": 22000,
+      "imagenes": [
+        "/uploads/captura-de-pantalla-2026-09-29-a-la-s-13.10.47.png"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Animal volador - pelicula de Avatar",
+      "categoria": "figuras",
+      "precio": 18000,
+      "imagenes": [
+        "/uploads/captura-de-pantalla-2026-09-29-a-la-s-13.09.40.png"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Animal acuatico - pelicula de Avatar",
+      "categoria": "figuras",
+      "precio": 8000,
+      "imagenes": [
+        "/uploads/preview.webp"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Terodáctilo Dinosaurio",
+      "categoria": "figuras",
+      "precio": 8000,
+      "imagenes": [
+        "/uploads/preview-1-.webp"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Chimuelo articulado",
+      "categoria": "figuras",
+      "precio": 10000,
+      "imagenes": [
+        "/uploads/preview-2-.webp"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Velocirraptor articulado",
+      "categoria": "figuras",
+      "precio": 10000,
+      "imagenes": [
+        "/uploads/preview-4-.webp"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Set de mate Copa del Mundo",
+      "categoria": "utiles",
+      "precio": 15000,
+      "descripcion": "Un set de mate para llevar a todos lados con vos, contiene dos compartimentos para guardar la yerba y el azucar, incluye bombilla",
+      "imagenes": [
+        "/uploads/preview-5-.webp"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Lámpara Dragón",
+      "categoria": "decoracion",
+      "precio": 22000,
+      "imagenes": [
+        "/uploads/preview-3-.webp"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Plesiosaurio - Dino articulado",
+      "categoria": "figuras",
+      "precio": 8000,
+      "imagenes": [
+        "/uploads/preview-6-.webp"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Dragón mecanico - articulado",
+      "categoria": "figuras",
+      "precio": 7000,
+      "imagenes": [
+        "/uploads/preview-7-.webp"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Ballena azul - articulada",
+      "categoria": "figuras",
+      "precio": 8000,
+      "imagenes": [
+        "/uploads/preview-8-.webp"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Katana retractil",
+      "categoria": "figuras",
+      "precio": 15000,
+      "imagenes": [
+        "/uploads/preview-9-.webp",
+        "/uploads/preview-10-.webp"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Camioneta a escala",
+      "categoria": "figuras",
+      "precio": 18000,
+      "imagenes": [
+        "/uploads/captura-de-pantalla-2026-09-29-a-la-s-14.28.22.png"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Araña esqueleto",
+      "categoria": "figuras",
+      "precio": 10000,
+      "imagenes": [
+        "/uploads/captura-de-pantalla-2026-09-29-a-la-s-14.29.58.png"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Dragón esqueleto",
+      "categoria": "figuras",
+      "precio": 10000,
+      "imagenes": [
+        "/uploads/captura-de-pantalla-2026-09-29-a-la-s-14.30.46.png"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Fidget toy spiderman",
+      "categoria": "decoracion",
+      "precio": 8000,
+      "imagenes": [
+        "/uploads/captura-de-pantalla-2026-09-29-a-la-s-14.32.03.png"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Lámpara huevo de dinosaurio",
+      "categoria": "decoracion",
+      "precio": 50000,
+      "imagenes": [
+        "/uploads/captura-de-pantalla-2026-09-29-a-la-s-14.33.04.png"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Dragón escorpión 3 colas articulado",
+      "categoria": "figuras",
+      "precio": 10000
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Lámpara Luma Mario Galaxy",
+      "categoria": "decoracion",
+      "precio": 20000,
+      "imagenes": [
+        "/uploads/captura-de-pantalla-2026-09-29-a-la-s-14.35.36.png"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Llavero Chimuelo articulado",
+      "categoria": "llaveros",
+      "precio": 4500,
+      "imagenes": [
+        "/uploads/captura-de-pantalla-2026-09-29-a-la-s-14.37.07.png"
+      ],
+      "colores": [
+        "Negro",
+        "Blanco"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Pack de llaveros Chimuelo x10 unidades",
+      "categoria": "llaveros",
+      "precio": 38000
+    }
+  ]
+}
