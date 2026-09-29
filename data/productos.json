@@ -3,17 +3,15 @@
     {
       "imagenes": [],
       "precio": 2500,
-      "material": "PLA",
-      "destacado": true,
+      "material": null,
+      "destacado": false,
       "nombre": "Llavero personalizado con nombre",
       "descripcion": "Llavero con el nombre o texto que quieras, en dos colores. Precio por unidad; consultá por cantidad para eventos.",
-      "tiempo_produccion": "2 a 3 días",
-      "colores": [
-        "A elección"
-      ],
+      "tiempo_produccion": "",
+      "colores": [],
       "visible": true,
       "categoria": "llaveros",
-      "medidas": "6 x 2 cm aprox."
+      "medidas": ""
     },
     {
       "imagenes": [],
