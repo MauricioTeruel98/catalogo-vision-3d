@@ -289,6 +289,14 @@
       "imagenes": [
         "/uploads/captura-de-pantalla-2026-09-29-a-la-s-15.00.18.webp"
       ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Dragón articulado - 80cm",
+      "categoria": "articulados",
+      "precio": 18000,
+      "medidas": "80cm de largo"
     }
   ]
 }
