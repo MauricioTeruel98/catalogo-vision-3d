@@ -279,6 +279,16 @@
       "nombre": "Pack de llaveros Chimuelo x10 unidades",
       "categoria": "llaveros",
       "precio": 38000
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Llaveros GTA VI",
+      "categoria": "llaveros",
+      "precio": 4500,
+      "imagenes": [
+        "/uploads/captura-de-pantalla-2026-09-29-a-la-s-15.00.18.png"
+      ]
     }
   ]
 }
