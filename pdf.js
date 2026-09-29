@@ -26,24 +26,31 @@
     });
   }
 
-  // Recorta la foto a un cuadrado (como object-fit: cover) y la pasa a JPEG liviano
-  function squareJPEG(img, size = 520) {
+  // Mismo fondo que en la web: degradé azul con rayas diagonales
+  function phCanvas(size) {
     const c = document.createElement("canvas");
     c.width = c.height = size;
     const x = c.getContext("2d");
-    x.fillStyle = "#fff"; x.fillRect(0, 0, size, size);
-    const s = Math.min(img.naturalWidth, img.naturalHeight);
-    x.drawImage(img, (img.naturalWidth - s) / 2, (img.naturalHeight - s) / 2, s, s, 0, 0, size, size);
+    const g = x.createRadialGradient(size / 2, size * 0.4, 0, size / 2, size * 0.4, size * 0.7);
+    g.addColorStop(0, "#16306b"); g.addColorStop(1, "#13203f");
+    x.fillStyle = g; x.fillRect(0, 0, size, size);
+    x.strokeStyle = "rgba(57,182,255,.06)"; x.lineWidth = size / 200;
+    const step = size / 20;
+    for (let i = 0; i < size * 2; i += step) { x.beginPath(); x.moveTo(i, 0); x.lineTo(i - size, size); x.stroke(); }
+    return { c, x };
+  }
+
+  // Encaja la foto completa en un cuadrado (como object-fit: contain) y la pasa a JPEG liviano
+  function squareJPEG(img, size = 520) {
+    const { c, x } = phCanvas(size);
+    const k = Math.min(size / img.naturalWidth, size / img.naturalHeight);
+    const w = img.naturalWidth * k, h = img.naturalHeight * k;
+    x.drawImage(img, (size - w) / 2, (size - h) / 2, w, h);
     return c.toDataURL("image/jpeg", 0.82);
   }
 
   function placeholderJPEG(logo, size = 520) {
-    const c = document.createElement("canvas");
-    c.width = c.height = size;
-    const x = c.getContext("2d");
-    const g = x.createRadialGradient(size / 2, size * 0.4, 10, size / 2, size / 2, size * 0.75);
-    g.addColorStop(0, "#16306b"); g.addColorStop(1, "#0f1830");
-    x.fillStyle = g; x.fillRect(0, 0, size, size);
+    const { c, x } = phCanvas(size);
     if (logo) {
       const w = size * 0.5, h = w * (logo.naturalHeight / logo.naturalWidth);
       x.globalAlpha = 0.6;

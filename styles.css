@@ -12,6 +12,10 @@
   --wa: #25d366;
   --radius: 16px;
   --shadow: 0 20px 50px -20px rgba(0, 60, 255, 0.45);
+  /* Fondo de las fotos (y de los productos sin foto) */
+  --ph-bg:
+    repeating-linear-gradient(135deg, rgba(57,182,255,.06) 0 2px, transparent 2px 14px),
+    radial-gradient(circle at 50% 40%, #16306b, #13203f 70%);
   --font-head: "Exo 2", system-ui, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
@@ -132,7 +136,7 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.1; margin: 0; letter-
   transition: transform .2s, border-color .2s, box-shadow .2s;
 }
 .card:hover, .card:focus-visible { transform: translateY(-4px); border-color: rgba(57,182,255,.45); box-shadow: var(--shadow); outline: none; }
-.card__img { aspect-ratio: 1; width: 100%; object-fit: cover; background: var(--card-2); }
+.card__img { aspect-ratio: 1; width: 100%; object-fit: contain; background: var(--ph-bg); }
 .card__body { padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
 .card__cat { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--cyan); font-weight: 600; }
 .card__title { font-size: 19px; font-weight: 700; }
@@ -150,9 +154,7 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.1; margin: 0; letter-
 /* Imagen de relleno cuando el producto no tiene fotos */
 .ph {
   aspect-ratio: 1; width: 100%; display: grid; place-items: center;
-  background:
-    repeating-linear-gradient(135deg, rgba(57,182,255,.06) 0 2px, transparent 2px 14px),
-    radial-gradient(circle at 50% 40%, #16306b, var(--card-2) 70%);
+  background: var(--ph-bg);
 }
 .ph img { width: 46%; opacity: .55; }
 
@@ -205,8 +207,8 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.1; margin: 0; letter-
 }
 .modal__body { display: grid; grid-template-columns: 1.1fr 1fr; }
 .gallery { padding: 16px; }
-.gallery__main { border-radius: 14px; overflow: hidden; background: var(--card-2); }
-.gallery__main > img { aspect-ratio: 1; width: 100%; object-fit: cover; }
+.gallery__main { border-radius: 14px; overflow: hidden; background: var(--ph-bg); }
+.gallery__main > img { aspect-ratio: 1; width: 100%; object-fit: contain; }
 .gallery__thumbs { display: flex; gap: 8px; margin-top: 10px; overflow-x: auto; }
 .gallery__thumbs button {
   flex: none; width: 64px; height: 64px; padding: 0; border-radius: 10px; overflow: hidden; cursor: pointer;
