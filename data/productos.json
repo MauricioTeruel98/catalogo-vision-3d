@@ -31,24 +31,6 @@
       "medidas": "8 x 9 x 11 cm"
     },
     {
-      "imagenes": [],
-      "precio": 12000,
-      "material": "PLA",
-      "destacado": true,
-      "nombre": "Figura articulada de dragón",
-      "descripcion": "Dragón flexible impreso en una sola pieza, con articulaciones móviles. Un regalo ideal para chicos y grandes.",
-      "tiempo_produccion": "4 a 6 días",
-      "colores": [
-        "Multicolor",
-        "Azul",
-        "Rojo",
-        "Dorado"
-      ],
-      "visible": true,
-      "categoria": "figuras",
-      "medidas": "30 cm de largo"
-    },
-    {
       "destacado": false,
       "visible": true,
       "nombre": "Camaleon que mueve los ojos",
