@@ -12,11 +12,15 @@ Las fotos que sube quedan en `uploads/`.
 ## Probar en local
 
 ```bash
-python3 -m http.server 8000        # sitio en http://localhost:8000
+./dev.sh
 ```
 
-Panel en local (sin Netlify): descomentá `local_backend: true` en `admin/config.yml`, y en otra terminal
-`npx decap-server`. Entrá a http://localhost:8000/admin/.
+Levanta el sitio en http://localhost:8000 y el panel en http://localhost:8000/admin/ (sin login;
+guarda directo en los archivos de esta carpeta). Ctrl+C apaga todo.
+
+`local_backend: true` en `admin/config.yml` puede quedar siempre activo: Decap solo lo usa cuando
+la página se abre desde localhost y `decap-server` responde; en Netlify se ignora.
+Después de cargar cosas en local, hacé commit y push para publicarlas.
 
 ## Publicar en Netlify
 
@@ -55,4 +59,4 @@ El botón **Descargar PDF** (al lado del buscador) arma el PDF en el navegador c
     Se pueden borrar columnas para actualizar solo algunas (ej. solo Nombre + Precio).
   - *Reemplazar todo*: el catálogo queda igual al Excel (borra los que falten).
   - Las fotos no se suben por Excel: se referencian rutas ya subidas (`/uploads/foto.webp`).
-- En local funciona con `npx decap-server` corriendo (igual que el panel).
+- En local funciona con `./dev.sh` (igual que el panel).

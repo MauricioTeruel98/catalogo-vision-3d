@@ -8,8 +8,9 @@ backend:
     update: "Actualizar {{collection}} “{{slug}}”"
     uploadMedia: "Subir imagen “{{path}}”"
 
-# Para probar el panel en tu compu sin Netlify: `npx decap-server` y descomentar:
-# local_backend: true
+# Modo local: solo se activa cuando el panel se abre desde localhost y está corriendo
+# `npx decap-server` (ver dev.sh). En el sitio publicado se ignora y usa el login normal.
+local_backend: true
 
 locale: es
 site_url: /
