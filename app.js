@@ -177,6 +177,25 @@
   });
   let t;
   $("#q").addEventListener("input", (e) => { clearTimeout(t); t = setTimeout(() => { state.q = e.target.value; renderGrid(); }, 120); });
+  $(".js-pdf").addEventListener("click", async (e) => {
+    const btn = e.currentTarget, label = btn.querySelector("span");
+    if (btn.getAttribute("aria-busy") === "true") return;
+    btn.setAttribute("aria-busy", "true");
+    try {
+      await window.generarCatalogoPDF({
+        cfg: state.cfg,
+        items: state.items,
+        catName, hasPrice, money,
+        onProgress: (f) => (label.textContent = `Generando… ${Math.round(f * 100)}%`),
+      });
+    } catch (err) {
+      console.error(err);
+      alert("No pudimos generar el PDF. Probá de nuevo en unos segundos.");
+    } finally {
+      btn.removeAttribute("aria-busy");
+      label.textContent = "Descargar PDF";
+    }
+  });
   $("#sort").addEventListener("change", (e) => { state.sort = e.target.value; renderGrid(); });
 
   // Si alguien entra con un link de invitación / recuperación del panel, lo mandamos a /admin

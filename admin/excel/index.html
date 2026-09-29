@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Importar / Exportar Excel · TucVision3D</title>
+  <link rel="icon" href="/assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <style>
+    :root {
+      --bg: #f4f6fb; --card: #fff; --line: #e1e6f0; --text: #141a28; --muted: #667085;
+      --blue: #1d8cff; --blue-d: #0a5cff; --dark: #070b16;
+      --ok: #12805c; --ok-bg: #e7f7ef; --warn: #9a6200; --warn-bg: #fff5e0; --err: #c0262d; --err-bg: #fdecec;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.5 Inter, system-ui, sans-serif; }
+    header { background: var(--dark); color: #fff; border-bottom: 3px solid var(--blue); }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 64px; }
+    header img { height: 40px; }
+    header a { color: #cfe0ff; text-decoration: none; font-size: 14px; }
+    header a:hover { color: #fff; }
+    h1 { font: 700 26px "Exo 2", sans-serif; margin: 32px 0 4px; }
+    h2 { font: 700 19px "Exo 2", sans-serif; margin: 0 0 6px; }
+    .lead { color: var(--muted); margin: 0 0 24px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px; margin-bottom: 18px; }
+    .card p { margin: 0 0 14px; color: var(--muted); }
+    .btn { display: inline-flex; align-items: center; gap: 8px; height: 42px; padding: 0 18px; border-radius: 10px; border: 1px solid transparent;
+      font: 600 14px Inter, sans-serif; cursor: pointer; text-decoration: none; }
+    .btn--primary { background: var(--blue); color: #fff; }
+    .btn--primary:hover { background: var(--blue-d); }
+    .btn--ghost { background: #fff; border-color: var(--line); color: var(--text); }
+    .btn--ghost:hover { background: #f0f3f9; }
+    .btn[disabled] { opacity: .5; cursor: not-allowed; }
+    .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .drop { display: block; border: 2px dashed var(--line); border-radius: 12px; padding: 26px; text-align: center; cursor: pointer; color: var(--muted); }
+    .drop:hover, .drop.over { border-color: var(--blue); background: #f2f8ff; color: var(--text); }
+    .drop input { display: none; }
+    .opts { display: grid; gap: 10px; margin: 16px 0; }
+    .opts label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
+    .opts input { margin-top: 4px; }
+    .opts small { display: block; color: var(--muted); }
+    .msg { padding: 12px 14px; border-radius: 10px; margin: 12px 0 0; }
+    .msg--ok { background: var(--ok-bg); color: var(--ok); }
+    .msg--warn { background: var(--warn-bg); color: var(--warn); }
+    .msg--err { background: var(--err-bg); color: var(--err); }
+    .msg ul { margin: 6px 0 0; padding-left: 20px; }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin: 14px 0; }
+    .stat { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+    .stat b { display: block; font: 700 24px "Exo 2", sans-serif; }
+    .stat span { color: var(--muted); font-size: 13px; }
+    .table { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; margin: 12px 0 16px; max-height: 420px; }
+    table { border-collapse: collapse; width: 100%; font-size: 13px; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { background: #f7f9fc; position: sticky; top: 0; }
+    .tag { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+    .tag--nuevo { background: var(--ok-bg); color: var(--ok); }
+    .tag--modificado { background: #e8f1ff; color: var(--blue-d); }
+    .tag--eliminado { background: var(--err-bg); color: var(--err); }
+    .muted { color: var(--muted); }
+    #login { text-align: center; padding: 48px 22px; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <img src="/assets/logo.png" alt="TucVision3D" />
+      <nav class="row">
+        <a href="/admin/">← Volver al panel</a>
+        <a href="#" id="logout" hidden>Cerrar sesión</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>Importar / Exportar Excel</h1>
+    <p class="lead">Editá muchos productos a la vez: descargá el Excel, modificalo y volvé a subirlo.</p>
+
+    <section class="card" id="login" hidden>
+      <h2>Iniciá sesión</h2>
+      <p>Usá el mismo usuario del panel de administración.</p>
+      <button class="btn btn--primary" id="btn-login">Iniciar sesión</button>
+    </section>
+
+    <div id="app" hidden>
+      <section class="card">
+        <h2>1. Exportar</h2>
+        <p>Descarga todos los productos actuales. Usalo también como plantilla para cargar productos nuevos.</p>
+        <button class="btn btn--primary" id="btn-export">Descargar Excel</button>
+        <span class="muted" id="export-info"></span>
+      </section>
+
+      <section class="card">
+        <h2>2. Importar</h2>
+        <p>Subí el Excel editado. Antes de guardar vas a ver un resumen de los cambios.</p>
+        <label class="drop" id="drop">
+          <input type="file" id="file" accept=".xlsx,.xls,.csv" />
+          <strong>Elegí el archivo</strong> o arrastralo acá<br /><small>.xlsx, .xls o .csv</small>
+        </label>
+
+        <div class="opts">
+          <label><input type="radio" name="modo" value="merge" checked />
+            <span><b>Actualizar y agregar</b><small>Los productos se identifican por el nombre. Los que coinciden se actualizan, los nuevos se agregan y los que no están en el Excel quedan como están.</small></span></label>
+          <label><input type="radio" name="modo" value="replace" />
+            <span><b>Reemplazar todo</b><small>El catálogo queda exactamente igual al Excel. Los productos que no estén en el archivo se eliminan.</small></span></label>
+          <label><input type="checkbox" id="crear-cats" checked />
+            <span><b>Crear categorías nuevas</b><small>Si el Excel tiene una categoría que no existe, se agrega automáticamente.</small></span></label>
+        </div>
+
+        <div id="result"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

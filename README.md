@@ -39,3 +39,20 @@ fotos (la primera es la portada; ideal cuadradas), medidas, material, colores, t
 destacado y visible. **Publicar** arriba a la derecha.
 
 Cada producto tiene link propio (`/#producto/nombre-del-producto`) y el botón de WhatsApp manda el nombre, precio y link.
+
+## Catálogo en PDF
+
+El botón **Descargar PDF** (al lado del buscador) arma el PDF en el navegador con los datos actuales
+(`pdf.js`, usa jsPDF desde cdnjs). Siempre sale actualizado; no hay que regenerar nada.
+
+## Importar / Exportar Excel
+
+`/admin/excel/` (botón verde **Excel** abajo a la izquierda en el panel). Usa el mismo login del panel.
+
+- **Exportar**: baja un `.xlsx` con hojas Productos, Categorías e Instrucciones.
+- **Importar**: muestra un resumen de cambios antes de guardar.
+  - *Actualizar y agregar*: identifica productos por nombre; los que no están en el Excel no se tocan.
+    Se pueden borrar columnas para actualizar solo algunas (ej. solo Nombre + Precio).
+  - *Reemplazar todo*: el catálogo queda igual al Excel (borra los que falten).
+  - Las fotos no se suben por Excel: se referencian rutas ya subidas (`/uploads/foto.webp`).
+- En local funciona con `npx decap-server` corriendo (igual que el panel).
