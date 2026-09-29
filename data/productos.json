@@ -87,6 +87,7 @@
       "categoria": "figuras",
       "precio": 18000,
       "imagenes": [
+        "/uploads/whatsapp-image-2026-09-29-at-18.53.24.webp",
         "/uploads/captura-de-pantalla-2026-09-29-a-la-s-13.09.40.webp"
       ]
     },
@@ -97,7 +98,8 @@
       "categoria": "figuras",
       "precio": 8000,
       "imagenes": [
-        "/uploads/preview.webp"
+        "/uploads/preview.webp",
+        "/uploads/whatsapp-image-2026-09-29-at-19.19.27.webp"
       ]
     },
     {
@@ -247,7 +249,10 @@
       "visible": true,
       "nombre": "Dragón escorpión 3 colas articulado",
       "categoria": "figuras",
-      "precio": 10000
+      "precio": 10000,
+      "imagenes": [
+        "/uploads/whatsapp-image-2026-09-29-at-19.12.39.webp"
+      ]
     },
     {
       "destacado": false,
@@ -296,7 +301,54 @@
       "nombre": "Dragón articulado - 80cm",
       "categoria": "articulados",
       "precio": 18000,
-      "medidas": "80cm de largo"
+      "medidas": "80cm de largo",
+      "imagenes": [
+        "/uploads/whatsapp-image-2026-09-29-at-19.10.25.webp"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Juguete cubico",
+      "categoria": "articulados",
+      "imagenes": [
+        "/uploads/whatsapp-image-2026-09-29-at-18.49.25.webp"
+      ],
+      "precio": 8004
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Dragon colmillo - doble color",
+      "categoria": "articulados",
+      "precio": 13000,
+      "imagenes": [
+        "/uploads/whatsapp-image-2026-09-29-at-19.14.45.webp"
+      ],
+      "colores": [
+        "Verde/Morado"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Escorpión",
+      "categoria": "articulados",
+      "precio": 15000,
+      "imagenes": [
+        "/uploads/whatsapp-image-2026-09-29-at-19.18.05.webp"
+      ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Huevo de dragón sorpresa con certificado para colocar nombre",
+      "categoria": "adopta-dragon",
+      "precio": 7000,
+      "imagenes": [
+        "/uploads/whatsapp-image-2026-09-29-at-18.58.18.webp",
+        "/uploads/whatsapp-image-2026-09-29-at-19.05.45.webp"
+      ]
     }
   ]
 }

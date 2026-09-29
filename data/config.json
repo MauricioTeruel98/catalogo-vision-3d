@@ -31,6 +31,14 @@
     {
       "nombre": "Packs de llaveros",
       "id": "llaveros-pack"
+    },
+    {
+      "nombre": "Adopta tu dino",
+      "id": "adopta-dino"
+    },
+    {
+      "nombre": "Adopta tu dragón",
+      "id": "adopta-dragon"
     }
   ],
   "whatsapp_principal": "5493815061365",
