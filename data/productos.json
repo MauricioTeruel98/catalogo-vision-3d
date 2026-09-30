@@ -334,6 +334,16 @@
         "/uploads/whatsapp-image-2026-09-29-at-18.58.18.webp",
         "/uploads/whatsapp-image-2026-09-29-at-19.05.45.webp"
       ]
+    },
+    {
+      "destacado": false,
+      "visible": true,
+      "nombre": "Tiburón articulado",
+      "categoria": "articulados",
+      "precio": 8000,
+      "imagenes": [
+        "/uploads/whatsapp-image-2026-09-29-at-19.34.24.jpeg"
+      ]
     }
   ]
 }
