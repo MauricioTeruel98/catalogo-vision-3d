@@ -1,12 +1,15 @@
 {
   "productos": [
     {
-      "imagenes": [],
+      "imagenes": [
+        "/uploads/whatsapp-image-2026-09-29-at-19.55.03.jpeg",
+        "/uploads/whatsapp-image-2026-09-29-at-19.55.14.jpeg"
+      ],
       "precio": 2500,
       "material": null,
       "destacado": false,
-      "nombre": "Llavero personalizado con nombre",
-      "descripcion": "Llavero con el nombre o texto que quieras, en dos colores. Precio por unidad; consultá por cantidad para eventos.",
+      "nombre": "Llavero clickeable personalizado con nombre",
+      "descripcion": "Llavero clickeable con el nombre o texto que quieras.",
       "tiempo_produccion": "",
       "colores": [],
       "visible": true,
