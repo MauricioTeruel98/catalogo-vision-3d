@@ -14,12 +14,14 @@
       "medidas": ""
     },
     {
-      "imagenes": [],
+      "imagenes": [
+        "/uploads/captura-de-pantalla-2026-09-30-a-la-s-15.00.29.png"
+      ],
       "precio": 4500,
       "material": "PETG",
       "destacado": false,
-      "nombre": "Soporte para celular",
-      "descripcion": "Soporte de escritorio con ángulo ergonómico, compatible con cualquier celular y con espacio para el cable de carga.",
+      "nombre": "Soporte para celular - Spiderman",
+      "descripcion": "Soporte para celular con tematica de Spiderman con ángulo ergonómico, compatible con cualquier celular y con espacio para el cable de carga.",
       "tiempo_produccion": "2 a 4 días",
       "colores": [
         "Negro",
