@@ -268,7 +268,10 @@
       "visible": true,
       "nombre": "Pack de llaveros Chimuelo x10 unidades",
       "categoria": "llaveros",
-      "precio": 38000
+      "precio": 38000,
+      "imagenes": [
+        "/uploads/fa083705-2ed9-4798-affe-f89b602072a8.jpeg"
+      ]
     },
     {
       "destacado": false,
