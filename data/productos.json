@@ -1,6 +1,15 @@
 {
   "productos": [
     {
+      "nombre": "Muñeco de nieve dispensador de palillos",
+      "categoria": "decoracion-navidena",
+      "imagenes": [
+        "/uploads/muneco-de-nieve-dispensador-de-palillos-mwb29vfa-1.webp"
+      ],
+      "destacado": false,
+      "visible": true
+    },
+    {
       "nombre": "Porta saumerio mándala",
       "categoria": "decoracion",
       "precio": 10000,
