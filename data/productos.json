@@ -2,8 +2,8 @@
   "productos": [
     {
       "imagenes": [
-        "/uploads/whatsapp-image-2026-09-29-at-19.55.03.jpeg",
-        "/uploads/whatsapp-image-2026-09-29-at-19.55.14.jpeg"
+        "/uploads/whatsapp-image-2026-09-29-at-19.55.03.webp",
+        "/uploads/whatsapp-image-2026-09-29-at-19.55.14.webp"
       ],
       "precio": 2500,
       "material": null,
@@ -18,7 +18,7 @@
     },
     {
       "imagenes": [
-        "/uploads/captura-de-pantalla-2026-09-30-a-la-s-15.00.29.png"
+        "/uploads/captura-de-pantalla-2026-09-30-a-la-s-15.00.29.webp"
       ],
       "precio": 4500,
       "material": "PETG",
@@ -270,7 +270,7 @@
       "categoria": "llaveros",
       "precio": 38000,
       "imagenes": [
-        "/uploads/fa083705-2ed9-4798-affe-f89b602072a8.jpeg"
+        "/uploads/fa083705-2ed9-4798-affe-f89b602072a8.webp"
       ]
     },
     {
@@ -345,7 +345,7 @@
       "categoria": "articulados",
       "precio": 8000,
       "imagenes": [
-        "/uploads/whatsapp-image-2026-09-29-at-19.34.24.jpeg"
+        "/uploads/whatsapp-image-2026-09-29-at-19.34.24.webp"
       ]
     }
   ]
