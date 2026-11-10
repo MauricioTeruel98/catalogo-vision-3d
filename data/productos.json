@@ -1,6 +1,17 @@
 {
   "productos": [
     {
+      "nombre": "Pesebre",
+      "categoria": "decoracion-navidena",
+      "precio": 8000,
+      "imagenes": [
+        "/uploads/pesebre-mwb25bat-1.webp",
+        "/uploads/pesebre-mwb25bat-2.webp"
+      ],
+      "destacado": false,
+      "visible": true
+    },
+    {
       "nombre": "Rosa con bombón",
       "categoria": "varios",
       "precio": 4500,
