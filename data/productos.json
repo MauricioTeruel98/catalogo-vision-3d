@@ -1,6 +1,16 @@
 {
   "productos": [
     {
+      "nombre": "Medialuna antiestrés",
+      "categoria": "articulados",
+      "precio": 10000,
+      "imagenes": [
+        "/uploads/medialuna-antiestres-mwb2cnsl-1.webp"
+      ],
+      "destacado": false,
+      "visible": true
+    },
+    {
       "nombre": "Porta saumerio",
       "categoria": "decoracion",
       "precio": 15000,
