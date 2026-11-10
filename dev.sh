@@ -14,5 +14,6 @@ echo ""
 echo "  Sitio:  http://localhost:8000"
 echo "  Panel:  http://localhost:8000/admin/"
 echo "  Excel:  http://localhost:8000/admin/excel/"
+echo "  Avanzado: http://localhost:8000/admin/avanzado/"
 echo "  (Ctrl+C para apagar)"
 wait

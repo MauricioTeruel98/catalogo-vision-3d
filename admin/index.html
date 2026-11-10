@@ -2,18 +2,137 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="robots" content="noindex" />
-  <title>Administrar catálogo · TucVision3D</title>
+  <meta name="theme-color" content="#070b16" />
+  <title>Mis productos · TucVision3D</title>
   <link rel="icon" href="/assets/favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/admin/panel.css" />
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  <a href="/admin/excel/" title="Importar o exportar productos en Excel"
-     style="position:fixed;left:16px;bottom:16px;z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:#12805c;color:#fff;font:600 14px system-ui,sans-serif;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.2)">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
-    Excel
-  </a>
+  <!-- Ingreso -->
+  <section id="v-login" class="login" hidden>
+    <img src="/assets/logo.png" alt="TucVision3D" />
+    <h1>Panel de productos</h1>
+    <p>Ingresá con tu mail y contraseña para cargar o editar productos.</p>
+    <button class="btn btn--primary btn--big" id="btn-login" type="button">Ingresar</button>
+  </section>
+
+  <!-- Listado -->
+  <section id="v-lista" hidden>
+    <header class="bar">
+      <img class="bar__logo" src="/assets/logo.png" alt="TucVision3D" />
+      <details class="menu">
+        <summary aria-label="Más opciones">
+          <svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+        </summary>
+        <div class="menu__list">
+          <a href="/" target="_blank">Ver el catálogo</a>
+          <a href="/admin/excel/">Importar / exportar Excel</a>
+          <a href="/admin/avanzado/">Panel avanzado <small>categorías y datos del sitio</small></a>
+          <button type="button" id="btn-logout">Cerrar sesión</button>
+        </div>
+      </details>
+    </header>
+
+    <div class="lista-head">
+      <h1>Mis productos <span id="total" class="muted"></span></h1>
+      <div class="search">
+        <svg viewBox="0 0 24 24"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm10 2-4.35-4.35"/></svg>
+        <input id="q" type="search" placeholder="Buscar por nombre…" autocomplete="off" />
+      </div>
+      <div id="chips" class="chips"></div>
+    </div>
+
+    <ul id="lista" class="lista"></ul>
+    <p id="vacio" class="vacio" hidden></p>
+
+    <div class="bottom">
+      <button class="btn btn--primary btn--big" id="btn-nuevo" type="button">
+        <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg> Agregar producto
+      </button>
+    </div>
+  </section>
+
+  <!-- Formulario -->
+  <section id="v-form" hidden>
+    <header class="bar bar--form">
+      <button class="back" type="button" id="btn-volver" aria-label="Volver">
+        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <h1 id="f-titulo">Nuevo producto</h1>
+    </header>
+
+    <form id="form" class="form" novalidate>
+      <div class="field">
+        <span class="label">Fotos</span>
+        <div id="fotos" class="fotos"></div>
+        <label class="btn btn--ghost btn--big add-foto">
+          <svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>
+          Agregar fotos
+          <input type="file" id="f-fotos" accept="image/*" multiple />
+        </label>
+        <small class="hint">La primera foto es la que se ve en el catálogo. Tocá ★ en otra para ponerla primera.</small>
+      </div>
+
+      <label class="field">
+        <span class="label">Nombre <b class="req">*</b></span>
+        <input id="f-nombre" type="text" autocomplete="off" placeholder="Ej: Dragón articulado" required />
+      </label>
+
+      <label class="field">
+        <span class="label">Precio</span>
+        <div class="precio"><span>$</span><input id="f-precio" type="text" inputmode="numeric" placeholder="Vacío = «Consultar precio»" /></div>
+      </label>
+
+      <label class="field">
+        <span class="label">Categoría <b class="req">*</b></span>
+        <select id="f-categoria" required></select>
+      </label>
+
+      <label class="field">
+        <span class="label">Descripción</span>
+        <textarea id="f-descripcion" rows="3" placeholder="Opcional"></textarea>
+      </label>
+
+      <label class="switch">
+        <span><b>Mostrar en el catálogo</b><small>Si lo apagás, queda guardado pero oculto.</small></span>
+        <input type="checkbox" id="f-visible" checked /><i></i>
+      </label>
+      <label class="switch">
+        <span><b>Destacado</b><small>Aparece primero, con una etiqueta.</small></span>
+        <input type="checkbox" id="f-destacado" /><i></i>
+      </label>
+
+      <details class="mas">
+        <summary>Más detalles (opcional)</summary>
+        <label class="field"><span class="label">Medidas</span><input id="f-medidas" type="text" placeholder="Ej: 10 x 10 x 12 cm" /></label>
+        <label class="field"><span class="label">Material</span>
+          <select id="f-material">
+            <option value="">—</option><option>PLA</option><option>PETG</option><option>ABS</option><option>TPU (flexible)</option><option>Resina</option><option>A elección</option>
+          </select>
+        </label>
+        <label class="field"><span class="label">Colores</span><input id="f-colores" type="text" placeholder="Separados por coma. Ej: Azul, Blanco" /></label>
+        <label class="field"><span class="label">Tiempo de producción</span><input id="f-tiempo" type="text" placeholder="Ej: 3 a 5 días" /></label>
+      </details>
+
+      <button type="button" class="btn btn--danger-text" id="btn-eliminar" hidden>Eliminar producto</button>
+
+      <div class="bottom">
+        <button class="btn btn--primary btn--big" type="submit" id="btn-guardar">Guardar</button>
+      </div>
+    </form>
+  </section>
+
+  <div id="cargando" class="cargando"><span class="spin"></span><p id="cargando-txt">Cargando…</p></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="/admin/repo.js"></script>
+  <script src="/admin/panel.js"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 # Catálogo TucVision3D
 
-Sitio estático (HTML + CSS + JS, sin build) con panel de administración **Decap CMS** en `/admin`.
+Sitio estático (HTML + CSS + JS, sin build) con un panel propio para el celular en `/admin`
+y **Decap CMS** como panel avanzado en `/admin/avanzado/`.
 Los datos viven en dos JSON dentro del repo:
 
 - `data/productos.json` → productos
@@ -18,7 +19,7 @@ Las fotos que sube quedan en `uploads/`.
 Levanta el sitio en http://localhost:8000 y el panel en http://localhost:8000/admin/ (sin login;
 guarda directo en los archivos de esta carpeta). Ctrl+C apaga todo.
 
-`local_backend: true` en `admin/config.yml` puede quedar siempre activo: Decap solo lo usa cuando
+`local_backend: true` en `admin/avanzado/config.yml` puede quedar siempre activo: Decap solo lo usa cuando
 la página se abre desde localhost y `decap-server` responde; en Netlify se ignora.
 Después de cargar cosas en local, hacé commit y push para publicarlas.
 
@@ -32,15 +33,23 @@ Después de cargar cosas en local, hacé commit y push para publicarlas.
 4. Identity → **Invite users** → mail del cliente. Le llega un link, crea su contraseña y entra a `https://tu-dominio/admin/`.
 5. **Domain management** → agregar el dominio propio.
 
-> Si Netlify Identity no está disponible en tu cuenta, cambiá el backend en `admin/config.yml` a
+> Si Netlify Identity no está disponible en tu cuenta, cambiá el backend en `admin/avanzado/config.yml` (y el panel simple, `admin/repo.js`) a
 > `name: github` + `repo: usuario/repo` y configurá un OAuth App de GitHub en Netlify
 > (Access & security → OAuth). El cliente entonces necesita una cuenta de GitHub con acceso al repo.
 
-## Cómo carga productos el cliente
+## Cómo se cargan productos
 
-`/admin` → **Catálogo → Productos** → *Agregar Producto*: nombre, categoría, precio (vacío = "Consultar precio"),
-fotos (la primera es la portada; ideal cuadradas), medidas, material, colores, tiempo de producción,
-destacado y visible. **Publicar** arriba a la derecha.
+`/admin/` es el panel simple, pensado para el celular:
+
+- Lista de productos con foto, buscador y filtro por categoría. Tocar uno lo abre para editar.
+- **Agregar producto**: fotos (desde la cámara o la galería), nombre, precio, categoría y descripción.
+  Medidas, material, colores y tiempo de producción quedan en «Más detalles (opcional)».
+- Las fotos se achican en el celular antes de subirlas (WebP, máx. 1200 px).
+- Cada guardado es un solo commit (fotos + JSON juntos) y Netlify publica en ~1 minuto.
+- Se puede crear una categoría nueva desde el mismo formulario.
+
+`/admin/avanzado/` (Decap CMS) sigue disponible para editar categorías, textos de portada,
+WhatsApp y demás datos del sitio. Ojo: las fotos que se suben desde ahí no se comprimen.
 
 Cada producto tiene link propio (`/#producto/nombre-del-producto`) y el botón de WhatsApp manda el nombre, precio y link.
 
@@ -51,7 +60,7 @@ El botón **Descargar PDF** (al lado del buscador) arma el PDF en el navegador c
 
 ## Importar / Exportar Excel
 
-`/admin/excel/` (botón verde **Excel** abajo a la izquierda en el panel). Usa el mismo login del panel.
+`/admin/excel/` (desde el menú ⋯ del panel, o el botón verde **Excel** del panel avanzado). Usa el mismo login.
 
 - **Exportar**: baja un `.xlsx` con hojas Productos, Categorías e Instrucciones.
 - **Importar**: muestra un resumen de cambios antes de guardar.
