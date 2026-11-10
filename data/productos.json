@@ -1,6 +1,16 @@
 {
   "productos": [
     {
+      "nombre": "Porta saumerio mándala",
+      "categoria": "decoracion",
+      "precio": 10000,
+      "imagenes": [
+        "/uploads/porta-saumerio-mandala-mwb26kuf-1.webp"
+      ],
+      "destacado": false,
+      "visible": true
+    },
+    {
       "nombre": "Pesebre",
       "categoria": "decoracion-navidena",
       "precio": 8000,
