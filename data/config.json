@@ -39,6 +39,10 @@
     {
       "nombre": "Adopta tu dragón",
       "id": "adopta-dragon"
+    },
+    {
+      "nombre": "Varios",
+      "id": "varios"
     }
   ],
   "whatsapp_principal": "5493815061365",

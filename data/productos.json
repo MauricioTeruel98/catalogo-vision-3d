@@ -1,6 +1,16 @@
 {
   "productos": [
     {
+      "nombre": "Rosa con bombón",
+      "categoria": "varios",
+      "precio": 4500,
+      "imagenes": [
+        "/uploads/rosa-con-bombon-mwb1zq7j-1.webp"
+      ],
+      "destacado": false,
+      "visible": true
+    },
+    {
       "imagenes": [
         "/uploads/whatsapp-image-2026-09-29-at-19.55.03.webp",
         "/uploads/whatsapp-image-2026-09-29-at-19.55.14.webp"
